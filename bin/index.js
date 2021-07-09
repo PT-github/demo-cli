@@ -14,5 +14,15 @@ program
     require('../lib/create')(name, options)
   })
 
+program
+  .command('api')
+  .description('添加axios自动生成脚本文件')
+  .option('-o, --output <output>', '脚本输出目录', 'bin')
+  .option('-u, --url <url>', 'swagger-ui地址', 'http://xxx.xxx.xxx')
+  .action((options) => {
+    // console.log(options, '===')
+    require('../lib/createApi')( '.', options)
+  })
+
 // 解析参数
 program.parse(process.argv)
